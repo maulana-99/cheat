@@ -11,7 +11,7 @@
 <body>
     <div class="card-container">
         @if ($kamars->isEmpty())
-            <p>No room</p>
+            <p>No room available</p>
         @else
             @foreach ($kamars as $item)
                 <div class="card-reservasi">
@@ -20,9 +20,12 @@
                     <p>Bed: {{ $item->bed }}</p>
                     <p>Kapasitas: {{ $item->kapasitas }}</p>
                     <p>Nomor Kamar: {{ $item->nomor_kamars }}</p>
+                    <a href="{{ route('reservasi.book', $item->id) }}">Book</a>
                     <hr>
                 </div>
             @endforeach
         @endif
     </div>
 </body>
+
+</html>

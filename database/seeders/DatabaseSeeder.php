@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Kamar;
+use App\Models\Fasilitas;
 
 class DatabaseSeeder extends Seeder
 {
@@ -92,6 +93,22 @@ class DatabaseSeeder extends Seeder
             'bed' => 'king',
             'kapasitas' => '1',
             'status' => '1',
+        ]);
+
+        Fasilitas::factory()->create([
+            'nama_fasilitas' => 'Kamar_mandi',
+            'deskripsi_fasilitas' => 'Setiap kamar meiliki kamar mandi',
+            'foto_fasilitas' => 'https://i.pinimg.com/736x/91/13/a7/9113a712dd6784e1a9b1e9325272e1a3.jpg',
+        ]);
+        Fasilitas::factory()->create([
+            'nama_fasilitas' => 'TV Tembok',
+            'deskripsi_fasilitas' => 'Setiap kamar meiliki TV',
+            'foto_fasilitas' => 'https://image.made-in-china.com/202f0j00uUKkGeawnNbW/TV-Wall-Units-LED-Light-Marble-Top-Wooden-TV-Cabinet.jpg',
+        ]);
+        Fasilitas::factory()->create([
+            'nama_fasilitas' => 'Resto',
+            'deskripsi_fasilitas' => 'Hotel memiliki resto di lantai 1',
+            'foto_fasilitas' => 'https://ik.imagekit.io/tvlk/blog/2021/10/Djaman-Doeloe-Restaurant-Four-Points-by-Sheraton-Surabaya-Pakuwon-Indah-1024x683.jpg?tr=dpr-2,w-675',
         ]);
     }
 }

@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->enum('tipe_kamar', ['standard', 'superior', 'delux'])->default('standard');
             $table->enum('bed', ['single', 'twin', 'double', 'king'])->default('single');
             $table->enum('kapasitas', ['1', '2', '3', '4'])->default('1');
-            $table->enum('status', ['0', '1'])->default('1');
+            $table->enum('status', ['0', '1', '2'])->default('1');
             $table->timestamps();
         });
     }

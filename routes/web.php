@@ -38,6 +38,9 @@ Route::get('/dashboard/room', function () {
     return view('reservasi.troom');
 });
 Route::get('/dashboard/room/standard', [Reservasi::class, 'roomStandard']);
+Route::get('/reservasi/book/{id}', 'ReservasiController@showBookingForm')->name('reservasi.book');
+Route::post('/reservasi/book', 'ReservasiController@submitBooking')->name('reservasi.submit');
+
 Route::get('/dashboard/room/superior', [Reservasi::class, 'roomSuperior']);
 Route::get('/dashboard/room/delux', [Reservasi::class, 'roomDelux']);
 // ///////////////////////// --> PAGE TAMU IS END
