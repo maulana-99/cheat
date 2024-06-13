@@ -10,6 +10,7 @@
 </head>
 
 <body>
+@include('component.navbar')
     <div class="container">
         <div class="register-box">
             <h2>Register</h2>

@@ -11,6 +11,7 @@
 </head>
 
 <body>
+@include('component.navbar')
     <div class="container">
         <div class="login-box">
             <h2>Login</h2>
