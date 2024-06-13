@@ -15,6 +15,7 @@ class Reservasi extends Model
         'nama_lengkap',
         'no_tlp',
         'alamat',
+        'quantity',
         'check_in',
         'check_out',
         'status',

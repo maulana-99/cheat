@@ -10,12 +10,12 @@ class Kamar extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nomor_kamar',
-        'nama_kamars',
+        'nama_kamar',
         'tipe_kamar',
         'bed',
         'kapasitas',
-        'status',
+        'quantity',
+        'deskripsi',
     ];
 
 }

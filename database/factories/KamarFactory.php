@@ -17,12 +17,13 @@ class KamarFactory extends Factory
     public function definition(): array
     {
         return [
-            'nomor_kamar' => $this->faker->unique()->regexify('[A-Z][0-9]{2}'),
             'nama_kamar' => $this->faker->word,
             'tipe_kamar' => $this->faker->randomElement(['standard', 'superior', 'delux']),
             'bed' => $this->faker->randomElement(['single', 'twin', 'double', 'king']),
             'kapasitas' => $this->faker->randomElement(['1', '2', '3', '4']),
             'status' => $this->faker->randomElement(['0', '1', '2']),
+            'quantity' => $this->faker->numberBetween(1, 100),
+            'deskripsi' => $this->faker->text,
         ];
     }
 }

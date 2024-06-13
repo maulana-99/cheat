@@ -15,10 +15,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Buat 10 user secara acak
-        // User::factory(10)->create();
-
-        // Buat user 
         User::factory()->create([
             'name' => 'tamu',
             'email' => 'tamu@gmail.com',
@@ -40,71 +36,28 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('12345678'),
         ]);
 
-        // Buat kamar 
         Kamar::factory()->create([
-            'nomor_kamar' => 'A01',
             'nama_kamar' => 'Simple Room',
             'tipe_kamar' => 'standard',
             'bed' => 'single',
             'kapasitas' => '1',
             'status' => '1',
-        ]);
-
-        Kamar::factory()->create([
-            'nomor_kamar' => 'A02',
-            'nama_kamar' => 'Simple Room',
-            'tipe_kamar' => 'standard',
-            'bed' => 'single',
-            'kapasitas' => '1',
-            'status' => '1',
-        ]);
-
-        Kamar::factory()->create([
-            'nomor_kamar' => 'A03',
-            'nama_kamar' => 'Simple Room',
-            'tipe_kamar' => 'standard',
-            'bed' => 'single',
-            'kapasitas' => '1',
-            'status' => '1',
-        ]);
-
-        Kamar::factory()->create([
-            'nomor_kamar' => 'A04',
-            'nama_kamar' => 'Family Room',
-            'tipe_kamar' => 'standard',
-            'bed' => 'king',
-            'kapasitas' => '4',
-            'status' => '1',
-        ]);
-
-        Kamar::factory()->create([
-            'nomor_kamar' => 'A05',
-            'nama_kamar' => 'Single Room',
-            'tipe_kamar' => 'delux',
-            'bed' => 'king',
-            'kapasitas' => '1',
-            'status' => '1',
-        ]);
-
-        Kamar::factory()->create([
-            'nomor_kamar' => 'A06',
-            'nama_kamar' => 'Double Room',
-            'tipe_kamar' => 'delux',
-            'bed' => 'king',
-            'kapasitas' => '1',
-            'status' => '1',
+            'deskripsi' => 'Kamar simple dengan single bed cocok untuk bersantai di weekend',
+            'quantity' => 10,
         ]);
 
         Fasilitas::factory()->create([
-            'nama_fasilitas' => 'Kamar_mandi',
-            'deskripsi_fasilitas' => 'Setiap kamar meiliki kamar mandi',
+            'nama_fasilitas' => 'Kamar mandi',
+            'deskripsi_fasilitas' => 'Setiap kamar memiliki kamar mandi dengan Wastafel,dan Toilet',
             'foto_fasilitas' => 'https://i.pinimg.com/736x/91/13/a7/9113a712dd6784e1a9b1e9325272e1a3.jpg',
         ]);
+
         Fasilitas::factory()->create([
             'nama_fasilitas' => 'TV Tembok',
-            'deskripsi_fasilitas' => 'Setiap kamar meiliki TV',
+            'deskripsi_fasilitas' => 'Setiap kamar memiliki TV',
             'foto_fasilitas' => 'https://image.made-in-china.com/202f0j00uUKkGeawnNbW/TV-Wall-Units-LED-Light-Marble-Top-Wooden-TV-Cabinet.jpg',
         ]);
+
         Fasilitas::factory()->create([
             'nama_fasilitas' => 'Resto',
             'deskripsi_fasilitas' => 'Hotel memiliki resto di lantai 1',

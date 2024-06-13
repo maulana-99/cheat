@@ -12,12 +12,13 @@ return new class extends Migration {
     {
         Schema::create('kamars', function (Blueprint $table) {
             $table->id();
-            $table->string('nomor_kamar')->unique();
             $table->string('nama_kamar');
             $table->enum('tipe_kamar', ['standard', 'superior', 'delux'])->default('standard');
             $table->enum('bed', ['single', 'twin', 'double', 'king'])->default('single');
             $table->enum('kapasitas', ['1', '2', '3', '4'])->default('1');
-            $table->enum('status', ['0', '1', '2'])->default('1');
+            $table->enum('status', ['1', '0'])->default('1');
+            $table->integer('quantity');
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }

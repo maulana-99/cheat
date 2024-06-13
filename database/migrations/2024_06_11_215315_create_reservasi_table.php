@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->string('nama_lengkap');
             $table->string('alamat');
             $table->string('no_tlp');
+            $table->integer('quantity');
             $table->date('check_in');
             $table->date('check_out');
             $table->enum('status', ['0', '1', '2'])->default('1');

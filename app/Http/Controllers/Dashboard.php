@@ -11,6 +11,7 @@ class Dashboard extends Controller
     {
         $fasilitas = Fasilitas::all();
         $user = auth()->user();
+        
         if ($user) {
             return view("dashboard", compact("user", "fasilitas"));
         } else {
