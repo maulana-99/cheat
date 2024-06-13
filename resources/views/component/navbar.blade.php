@@ -20,11 +20,17 @@
                 <li>
                     <a href="{{ url('/dashboard') }}">Dashboard</a>
                 </li>
-                <li>
-                    <a href="{{ url('/logout') }}">Logout</a>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Room</a>
+                    <div class="dropdown-content">
+                        <a href="#">Select Type</a>
+                        <a href="{{ url('/dashboard/room/standard') }}">Standard</a>
+                        <a href="{{ url('/dashboard/room/delux') }}">Delux</a>
+                        <a href="{{ url('/dashboard/room/superior') }}">Superior</a>
+                    </div>
                 </li>
                 <li>
-                    <a href="{{ url('/dashboard/room') }}">Room</a>
+                    <a href="{{ url('/logout') }}">Logout</a>
                 </li>
             @else
                 <li>

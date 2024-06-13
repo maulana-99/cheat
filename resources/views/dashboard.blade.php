@@ -17,7 +17,6 @@
         </p>
     </div>
 
-
     <div class="container">
         <div class="welcome-section">
             <h2>Discover Your Perfect Stay</h2>

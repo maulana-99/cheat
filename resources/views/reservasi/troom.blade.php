@@ -12,40 +12,43 @@
             background-color: #f8fafc;
             margin: 0;
             padding: 0;
+
+        }
+
+        .btn-nav-room {
+            display: flex;
+            gap: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
 
-        .btn-nav-room {
-            display: flex;
-            gap: 20px;
-        }
-
         .btn-nav-room a {
             text-decoration: none;
             padding: 10px 20px;
             border-radius: 5px;
-            background-color: #3490dc; /* Primary color */
+            background-color: #3490dc;
+
             color: white;
             transition: background-color 0.3s ease, transform 0.3s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .btn-nav-room a:hover {
-            background-color: #2779bd; /* Darker shade for hover */
+            background-color: #2779bd;
             transform: translateY(-2px);
         }
 
         .btn-nav-room a:active {
-            background-color: #1c3d5a; /* Even darker shade for active */
+            background-color: #1c3d5a;
             transform: translateY(0);
         }
     </style>
 </head>
 
 <body>
+    @include('component.navbar')
     <div class="btn-nav-room">
         <a href="{{ url('/dashboard/room/standard') }}">Standard</a>
         <a href="{{ url('/dashboard/room/delux') }}">Delux</a>
