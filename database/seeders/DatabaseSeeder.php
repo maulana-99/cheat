@@ -41,8 +41,16 @@ class DatabaseSeeder extends Seeder
             'tipe_kamar' => 'standard',
             'bed' => 'single',
             'kapasitas' => '1',
-            'status' => '1',
             'deskripsi' => 'Kamar simple dengan single bed cocok untuk bersantai di weekend',
+            'quantity' => 10,
+        ]);
+
+        Kamar::factory()->create([
+            'nama_kamar' => 'Family Room',
+            'tipe_kamar' => 'standard',
+            'bed' => 'king',
+            'kapasitas' => '4',
+            'deskripsi' => 'Kamar keluarga dengan king bed cocok untuk bersantai di weekend bersama anak dan istri',
             'quantity' => 10,
         ]);
 

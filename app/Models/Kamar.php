@@ -18,4 +18,9 @@ class Kamar extends Model
         'deskripsi',
     ];
 
+    public function reservasi()
+    {
+        return $this->hasMany(Reservasi::class, 'kamar_id');
+    }
+
 }

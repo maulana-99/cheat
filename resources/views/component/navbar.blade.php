@@ -22,7 +22,9 @@
                 </li>
                 <li>
                     <a href="/dashboard/room">Room</a>
-
+                </li>
+                <li>
+                    <a href="{{ url('/dashboard/history') }}">History</a>
                 </li>
                 <li>
                     <a href="{{ url('/logout') }}">Logout</a>
@@ -30,6 +32,9 @@
             @else
                 <li>
                     <a href="{{ url('/dashboard') }}">Dashboard</a>
+                </li>
+                <li>
+                    <a href="/dashboard/room">Room</a>
                 </li>
                 <li>
                     <a href="{{ url('/login') }}">Login</a>

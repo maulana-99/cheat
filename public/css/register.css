@@ -73,7 +73,8 @@ body {
 
 .captcha {
     display: flex;
-    justify-content: space-;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #captcha-img {

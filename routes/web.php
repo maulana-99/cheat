@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Dashboard;
-use App\Http\Controllers\Reservasi;
+use App\Http\Controllers\History;
+use App\Http\Controllers\ReservasiController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -34,7 +35,11 @@ Route::middleware(['guest'])->group(function () {
 
 // ///////////////////////// --> PAGE TAMU IS START
 Route::get('/dashboard', [Dashboard::class, 'index']);
-Route::get('/dashboard/room', [Reservasi::class, 'index']);
+Route::get('/dashboard/room', [ReservasiController::class, 'index'])->name('reservasi.index');
+Route::get('/dashboard/room/book/{id}', [ReservasiController::class, 'showBookingForm'])->name('book.show');
+Route::post('/dashboard/room/book', [ReservasiController::class, 'storeBooking'])->name('book.store');
+Route::get('/dashboard/history', [History::class, 'index'])->name('history.index');
+
 
 // ///////////////////////// --> PAGE TAMU IS END
 

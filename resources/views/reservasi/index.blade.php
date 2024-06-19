@@ -18,17 +18,22 @@
             @foreach ($kamars as $item)
                 <div class="card-reservasi">
                     <div class="card-header">
-                        <h2 >{{ $item->nama_kamar }}</h2>
+                        <h2>{{ $item->nama_kamar }}</h2>
                     </div>
                     <div class="card-body">
                         <p><strong>Tipe Kamar:</strong> {{ $item->tipe_kamar }}</p>
                         <p><strong>Bed:</strong> {{ $item->bed }}</p>
                         <p><strong>Kapasitas:</strong> {{ $item->kapasitas }} orang</p>
                         <p><strong>Tersisa:</strong> {{ $item->quantity }} Kamar</p>
+                        <p><strong>Deskripsi:</strong> {{ $item->deskripsi }}</p>
                     </div>
                     <hr>
                     <div class="card-footer">
-                        <a class="book-button">Book Now</a>
+                        @if ($item->quantity == 0)
+                            <a class="book-button">Out Of Stock</a>
+                        @else
+                            <a class="book-button" href="{{ route('book.show', ['id' => $item->id]) }}">Book Now</a>
+                        @endif
                     </div>
                     <br>
                 </div>
