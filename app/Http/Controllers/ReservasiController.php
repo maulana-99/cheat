@@ -56,6 +56,6 @@ class ReservasiController extends Controller
         $kamar->quantity -= $validated['quantity'];
         $kamar->save();
 
-        return redirect()->route('reservasi.index')->with('success', 'Booking berhasil dibuat.');
+        return redirect()->route('history.index')->with('success', 'Booking berhasil dibuat.');
     }
 }

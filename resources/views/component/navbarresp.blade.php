@@ -11,22 +11,13 @@
 
 <body>
     <nav class="navbar">
-        <a class="navbar-brand" href="{{ url('/dashboard/admin') }}"><i class="fa-solid fa-hotel"></i> HotelReserve</a>
+        <a class="navbar-brand" href="{{ url('/dashboard/resepsionis') }}"><i class="fa-solid fa-hotel"></i> HotelReserve</a>
         <ul class="navbar-nav">
             <li>
                 <a href="#">Welcome {{ Auth::user()->name }}</a>
             </li>
             <li>
-                <a href="{{ url('/dashboard/admin') }}">Dashboard Admin</a>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle">Crud</a>
-                <div class="dropdown-content">
-                    <a href="#">Select Crud</a>
-                    <a href="{{ url('/dashboard/admin/kamar') }}">Kamar</a>
-                    <a href="{{ url('/dashboard/admin/fasilitas') }}">Fasilitas</a>
-                    <a href="{{ url('/dashboard/admin/resepsionis') }}">Resepsionis</a>
-                </div>
+                <a href="{{ url('/dashboard/resepsionis') }}">Dashboard Resepsionis</a>
             </li>
             <li>
                 <a href="{{ url('/logout') }}">Logout</a>
