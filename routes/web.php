@@ -19,9 +19,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/logout', [AuthController::class, 'logout']);
-
 Route::get('/home', function () {
     return redirect('/dashboard');
 });
@@ -30,11 +27,13 @@ Route::get('/', function () {
     return redirect('/dashboard');
 });
 
+Route::get('/logout', [AuthController::class, 'logout']);
+
+// Route::get('/reload-captcha', [AuthController::class, 'reloadCaptcha']);
+
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [AuthController::class, 'loginPage'])->name('login');
     Route::post('/login', [AuthController::class, 'login']);
-    Route::get('/reload-captcha', [AuthController::class, 'reloadCaptcha']);
-
     Route::get('/register', [AuthController::class, 'registerPage'])->name('register');
     Route::post('/register', [AuthController::class, 'register']);
 });
@@ -46,17 +45,24 @@ Route::get('/dashboard/room/book/{id}', [ReservasiController::class, 'showBookin
 Route::post('/dashboard/room/book', [ReservasiController::class, 'storeBooking'])->name('book.store');
 Route::get('/dashboard/history', [History::class, 'index'])->name('history.index');
 Route::get('/generate-pdf/{id}', [History::class, 'generatePDF'])->name('generate.pdf');
-
-
-
 // ///////////////////////// --> PAGE TAMU IS END
 
 Route::middleware(['userAkses:admin'])->group(function () {
+    // ///////////////////////// --> CRUD FASILITAS IS START
     Route::get('/dashboard/admin/fasilitas', [CrudFasilitasHotel::class, 'index'])->name('CF.index');
+    // ///////////////////////// --> CRUD FASILITAS IS END
+
+    // ///////////////////////// --> CRUD USER IS START
+    // Route::get('/dashboard/admin/user', [CrudFasilitasHotel::class, 'index'])->name('CU.index');
+// ///////////////////////// --> CRUD USER IS END
+
+    // ///////////////////////// --> CRUD KAMAR IS START
+    // Route::get('/dashboard/admin/kamar', [CrudFasilitasHotel::class, 'index'])->name('CK.index');
+// ///////////////////////// --> CRUD KAMAR IS END
 });
 
 Route::middleware('userAkses:resepsionis')->group(function () {
     Route::get('/dashboard/resepsionis', [ResepsionisController::class, 'index'])->name('resepsionis.index');
     Route::post('/dashboard/resepsionis/check-in/{id}', [ResepsionisController::class, 'checkIn'])->name('resepsionis.checkin');
-
+    Route::post('/dashboard/resepsionis/check-out/{id}', [ResepsionisController::class, 'checkOut'])->name('resepsionis.checkout');
 });

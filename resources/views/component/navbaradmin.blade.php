@@ -29,7 +29,7 @@
                 </div>
             </li>
             <li>
-                <a href="{{ url('/logout') }}">Logout</a>
+                <a onclick="return confirm('Apakah Anda yakin ingin logout?');" href="{{ url('/logout') }}">Logout</a>
             </li>
         </ul>
     </nav>

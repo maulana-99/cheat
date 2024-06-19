@@ -13,7 +13,8 @@
     @include('component.navbaradmin')
     <div class="container">
         <h1>Daftar Fasilitas</h1>
-        <button class="btn btn-add">Tambah Fasilitas</button>
+        @include('component.alert')
+        <a href="/dashboard/admin/fasilitas/create" class="btn btn-add">Create</a>
         <table>
             <thead>
                 <tr>
@@ -24,17 +25,17 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Contoh Data -->
-                <tr>
-                    <td>Fasilitas 1</td>
-                    <td>Deskripsi Fasilitas 1</td>
-                    <td><img src="foto1.jpg" alt="Foto Fasilitas 1" class="img-thumbnail"></td>
-                    <td>
-                        <button class="btn btn-edit">Edit</button>
-                        <button class="btn btn-delete">Hapus</button>
-                    </td>
-                </tr>
-                <!-- Data lainnya bisa diisi disini -->
+                @foreach ($fasilitas as $item)
+                    <tr>
+                        <td>{{ $item->nama_fasilitas }}</td>
+                        <td><div class="td-content">{{ $item->deskripsi_fasilitas }}</div></td>
+                        <td><img src="{{ $item->foto_fasilitas }}" class="img-thumbnail"></td>
+                        <td>
+                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-delete">Hapus</button>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

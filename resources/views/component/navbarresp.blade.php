@@ -11,7 +11,8 @@
 
 <body>
     <nav class="navbar">
-        <a class="navbar-brand" href="{{ url('/dashboard/resepsionis') }}"><i class="fa-solid fa-hotel"></i> HotelReserve</a>
+        <a class="navbar-brand" href="{{ url('/dashboard/resepsionis') }}"><i class="fa-solid fa-hotel"></i>
+            HotelReserve</a>
         <ul class="navbar-nav">
             <li>
                 <a href="#">Welcome {{ Auth::user()->name }}</a>
@@ -20,8 +21,8 @@
                 <a href="{{ url('/dashboard/resepsionis') }}">Dashboard Resepsionis</a>
             </li>
             <li>
-                <a href="{{ url('/logout') }}">Logout</a>
-            </li>
+                <a onclick="return confirm('Apakah Anda yakin ingin logout?');" href="{{ url('/logout') }}">Logout</a>
+            </li>            
         </ul>
     </nav>
 </body>

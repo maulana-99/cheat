@@ -13,6 +13,7 @@
     @include('component.navbarresp')
     <div class="container">
         <h1>Daftar Reservasi</h1>
+        @include('component.alert')
         <form class="filter" action="{{ route('resepsionis.index') }}" method="get">
             <div class="filter-chekIn">
                 <p>Check In</p>
@@ -23,7 +24,8 @@
                 <input type="text" name="nama_lengkap">
             </div>
             <div class="container-btn">
-                <br><p></p>
+                <br>
+                <p></p>
                 <button class="btn-src" type="submit">Cari</button>
             </div>
         </form>
@@ -54,12 +56,18 @@
                         <td>{{ $item->check_out }}</td>
                         <td>
                             @if ($item->status == '1')
-                                <form action="">
-                                    <button class="btn ci">Chek In</button>
+                                <form action="{{ route('resepsionis.checkin', $item->id) }}" method="POST"
+                                    onsubmit="return confirm('Apakah Anda yakin ingin men check in ini?');"
+                                    style="display:inline;">
+                                    @csrf
+                                    <button class="btn ci" type="submit">Chek In</button>
                                 </form>
                             @elseif ($item->status == '2')
-                                <form action="">
-                                    <button class="btn co">Chek Out</button>
+                                <form action="{{ route('resepsionis.checkout', $item->id) }}" method="POST"
+                                    onsubmit="return confirm('Apakah Anda yakin ingin men check out ini?');"
+                                    style="display:inline;">
+                                    @csrf
+                                    <button class="btn co" type="submit">Chek Out</button>
                                 </form>
                             @else
                                 <button class="btn" disabled>Reservasi Selesai</button>

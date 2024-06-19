@@ -20,6 +20,6 @@ class userAkses
         if ($user && $user->role === $role) {
             return $next($request);
         }
-        return redirect('/this-page-cant-be-reach');
+        return redirect('/404');
     }
 }

@@ -12,10 +12,8 @@ class ReservasiController extends Controller
 {
     public function index()
     {
-        // Query to group data
         $kamars = Kamar::all();
 
-        // Return view with grouped data
         return view('reservasi.index', ['kamars' => $kamars]);
     }
 

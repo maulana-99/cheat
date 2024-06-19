@@ -26,13 +26,13 @@
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" required>
                 </div>
-                <div class="input-box">
+                {{-- <div class="input-box">
                     <div class="captcha">
                         <span id="captcha-img">{!! captcha_img() !!}</span>
                         <button type="button" class="reload-btn" id="reload">&#x21bb;</button>
                     </div>
                     <input type="text" id="captcha" name="captcha" placeholder="Enter Captcha" required>
-                </div>
+                </div> --}}
                 <div class="button-box">
                     <button type="submit">Login</button>
                 </div>
@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    <script>
+    {{-- <script>
         $('#reload').click(function() {
             $.ajax({
                 type: 'GET',
@@ -51,7 +51,7 @@
                 }
             });
         });
-    </script>
+    </script> --}}
 </body>
 
 </html>
