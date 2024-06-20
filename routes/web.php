@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CrudFasilitasHotel;
+use App\Http\Controllers\CrudKamar;
+use App\Http\Controllers\CrudResepsionis;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\History;
 use App\Http\Controllers\ResepsionisController;
@@ -19,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/home', function () {
     return redirect('/dashboard');
 });
@@ -48,17 +51,18 @@ Route::get('/generate-pdf/{id}', [History::class, 'generatePDF'])->name('generat
 // ///////////////////////// --> PAGE TAMU IS END
 
 Route::middleware(['userAkses:admin'])->group(function () {
+    Route::get('/dashboard/admin', [Dashboard::class, 'adminDashboard'])->name('admin.dashboard');
     // ///////////////////////// --> CRUD FASILITAS IS START
-    Route::get('/dashboard/admin/fasilitas', [CrudFasilitasHotel::class, 'index'])->name('CF.index');
+    Route::resource('/dashboard/admin/fasilitas', CrudFasilitasHotel::class);
     // ///////////////////////// --> CRUD FASILITAS IS END
 
     // ///////////////////////// --> CRUD USER IS START
-    // Route::get('/dashboard/admin/user', [CrudFasilitasHotel::class, 'index'])->name('CU.index');
-// ///////////////////////// --> CRUD USER IS END
+    Route::resource('/dashboard/admin/resepsionis', CrudResepsionis::class);
+    // ///////////////////////// --> CRUD USER IS END
 
     // ///////////////////////// --> CRUD KAMAR IS START
-    // Route::get('/dashboard/admin/kamar', [CrudFasilitasHotel::class, 'index'])->name('CK.index');
-// ///////////////////////// --> CRUD KAMAR IS END
+    Route::resource('/dashboard/admin/kamar', CrudKamar::class);
+    // ///////////////////////// --> CRUD KAMAR IS END
 });
 
 Route::middleware('userAkses:resepsionis')->group(function () {

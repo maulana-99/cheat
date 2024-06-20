@@ -28,11 +28,18 @@
                 @foreach ($fasilitas as $item)
                     <tr>
                         <td>{{ $item->nama_fasilitas }}</td>
-                        <td><div class="td-content">{{ $item->deskripsi_fasilitas }}</div></td>
+                        <td>
+                            <div class="td-content">{{ $item->deskripsi_fasilitas }}</div>
+                        </td>
                         <td><img src="{{ $item->foto_fasilitas }}" class="img-thumbnail"></td>
                         <td>
-                            <button class="btn btn-edit">Edit</button>
-                            <button class="btn btn-delete">Hapus</button>
+                            <a href="{{ route('fasilitas.edit', $item->id) }}" class="btn btn-edit">Edit</a>
+                            <form action="{{ route('fasilitas.destroy', $item->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-delete"
+                                    onclick="return confirm('Apakah Anda yakin ingin menghapus fasilitas ini?');">Hapus</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
